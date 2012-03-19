@@ -168,6 +168,11 @@ fun! Big5()
 	set fileencoding=big5
 endfun
 
+" ---------------
+" Fix Trailing White Space
+" ---------------
+map <leader>ws :%s/\s\+$//e<CR>
+command! FixTrailingWhiteSpace :%s/\s\+$//e
 " ----------------------
 " Function with status line
 " ----------------------
@@ -194,8 +199,8 @@ autocmd BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '
 
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
-filetype plugin on    " Enable filetype-specific plugins
 syntax on		" syntax highlight
+filetype plugin on    " Enable filetype-specific plugins
 
 "--------------------------------------------------------------------------- 
 " USEFUL SHORTCUTS
@@ -244,7 +249,7 @@ vnoremap ; :
 
 
 " Map ,e to open files in the same directory as the current file
-map <leader>e :e <C-R>=expand("%:h")<cr>.\
+map <leader>e :e <C-R>=expand("%:h")<cr>\
 
 " ,/ turn off search highlighting
 nmap <leader>/ :nohl<CR>
@@ -357,11 +362,39 @@ hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
 
 " --- Powerline
-let g:Powerline_symbols = 'fancy'
+" Keep ^B from showing on Windows in Powerline
+if has('win32') || has('win64')
+  let g:Powerline_symbols = 'compatible'
+elseif has('gui_macvim')
+  let g:Powerline_symbols = 'fancy'
+endif
+
 
 " --- NERDTree
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\.bak$', '\~$']
 let NERDTreeShowBookmarks=1
+
+
+" ---- Indent Guides
+let g:indent_guides_enable_on_vim_startup=1
+
+" ---- Jellybeans
+hi! link cssAttr Constant
+
+" --- SnipMate
+autocmd FileType python set ft=python.django " For SnipMate
+autocmd FileType html set ft=htmldjango.html " For SnipMate
+
+
+" ----- Surround
+let b:surround_{char2nr("v")} = "{{ \r }}"
+let b:surround_{char2nr("{")} = "{{ \r }}"
+let b:surround_{char2nr("%")} = "{% \r %}"
+let b:surround_{char2nr("b")} = "{% block \1block name: \1 %}\r{% endblock \1\1 %}"
+let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
+let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
+let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
+let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 
 
 "--------------------------------------------------------------------------- 
