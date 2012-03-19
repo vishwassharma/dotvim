@@ -7,4 +7,12 @@ Installation windows
 	3. Create symbolic link 
 		a. mklink _vimrc dotvim\vimrc
 		b mklink _gvimrc dotvim\gvimrc
+		c. mklink /D vimfiles dotvim
+	4. git submodule init
+	5. git submodule update
+
+cd dotvim
+git submodule add http://github.com/tpope/vim-fugitive.git bundle/fugitive
+git add .
+git commit -m "Installing plugin"
 	
