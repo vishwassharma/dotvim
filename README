@@ -15,4 +15,5 @@ cd dotvim
 git submodule add http://github.com/tpope/vim-fugitive.git bundle/fugitive
 git add .
 git commit -m "Installing plugin"
-	
+
+git submodule foreach git pull origin master
