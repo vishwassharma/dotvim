@@ -1,0 +1,10 @@
+Install vim in home directory
+
+Installation windows
+	1.cd \User\%USER%\
+	2. git clone .... dotvim
+	3. cd ..
+	3. Create symbolic link 
+		a. mklink _vimrc dotvim\vimrc
+		b mklink _gvimrc dotvim\gvimrc
+	
