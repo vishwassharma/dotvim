@@ -1,6 +1,21 @@
 Install vim in home directory
 
-Installation windows
+1. Installing in ubunut
+	cd ~
+	git clone https://vishwassharma@github.com/vishwassharma/dotvim.git dotvim
+	cd dotvim
+	cd ..
+	ln -s dotvim .vim
+	ln -s dotvim/vimrc .vimrc
+	ln -s dotvim/gvimrc .gvimrc
+	cd dotvim
+  # Sync system
+	git submodule init
+	git submodule update
+	cp -r others/sparkup/vim/ftplugin ftplugin
+	cp -r others/snipmate-django/snippets bundle/snipmate/snippets
+	
+2. Installation windows
 	1.cd \User\%USER%\
 	2. git clone .... dotvim
 	3. cd ..
