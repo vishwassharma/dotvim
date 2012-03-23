@@ -32,3 +32,9 @@ git add .
 git commit -m "Installing plugin"
 
 git submodule foreach git pull origin master
+
+
+TODO :: SETUP "neocomplcache"
+TODO :: SETUP "custom-snippets"
+TODO :: SETUP "command-t"
+TODO :: SETUP "everything with vundle"

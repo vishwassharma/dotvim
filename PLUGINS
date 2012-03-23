@@ -86,4 +86,15 @@ MiniBufexplorer --
         s -- split horizontaly
         v -- split vertically
 
+NeoComplcache
+  Complete things as we type
+  usage
+    this plugin will complete things as we type will be used for setting
+    up a complete python IDE
+
+
+vim-repeat
+  enable repeating supported plugin maps with "."
+  usage
+    Press "."
 
