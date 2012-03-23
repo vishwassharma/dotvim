@@ -1,0 +1,99 @@
+JellyBeans -- Theme for vim ui
+
+nerdcommenter -- Comment/Uncomment of code becomes easy with it
+  usage
+    ,cs -- Sexy multiline Comment
+    ,ci -- Comment invert
+    ,cn -- Comment line
+
+vim-coffee-script -- Tools used in developing coffee-script
+  usage
+    TODO
+
+vim-indent-guides -- ui aid which creates bar to identify each tab you make
+
+vim-surround -- Change/Add/Delete things that surround our selected text
+  usage
+    Enter into visual mode ( Escape then press v)
+    cst<tag> -- Change surrounding tag to <tag>
+    Sb -- Add a Jinja2 block tag surrounding to text
+
+vim-nerdtree -- Display file explorer useful as code browser
+  usage
+    Press <F2> to toggle NERDTree
+
+vim-easymotion -- Jump forward to code utility
+  usage
+    Press escape to go into normal mode
+    ,,w --  This will highlight the forward code based with some tags, 
+            when you select any tag you will jump to that location
+
+vim-pathogen -- Vim plugin management tool, All plugins should be in bundle folder
+
+L9 -- Just a lib. for vim plugin FuzzyFinder
+
+vim-haml -- Syntax highlighter for haml, sass and scss
+
+vim-powerline -- ui aid for information display .. see the blue bar below this is powerline
+
+snipmate -- Snippet manager :) my fav
+  usage
+    In insert mode type the snippet identifier and press tab and there you have your code
+
+others/sparkup -- Sparkup utility for faster html generation
+  usage
+    div>h1>p+p <Control E> will expands to
+      <div>
+        <h1>
+          <p></p>
+          <p></p>
+        </h1>
+      </div>
+
+
+FuzzyFinder Plugin
+  FuzzyFinder provides convenient ways to quickly reach the buffer/file/command/bookmark/tag you want.
+  usage
+    My Key Mapping 
+      <F3> Enter FuzzyFinder file mode
+    Command           Mode ~
+    |:FufBuffer|       - Buffer mode (|fuf-buffer-mode|)
+    |:FufFile|         - File mode (|fuf-file-mode|)
+    |:FufCoverageFile| - Coverage-File mode (|fuf-coveragefile-mode|)
+    |:FufDir|          - Directory mode (|fuf-dir-mode|)
+    |:FufMruFile|      - MRU-File mode (|fuf-mrufile-mode|)
+    |:FufMruCmd|       - MRU-Command mode (|fuf-mrucmd-mode|)
+    |:FufBookmarkFile| - Bookmark-File mode (|fuf-bookmarkfile-mode|)
+    |:FufBookmarkDir|  - Bookmark-Dir mode (|fuf-bookmarkdir-mode|)
+    |:FufTag|          - Tag mode (|fuf-tag-mode|)
+    |:FufBufferTag|    - Buffer-Tag mode (|fuf-buffertag-mode|)
+    |:FufTaggedFile|   - Tagged-File mode (|fuf-taggedfile-mode|)
+
+  Options while opening file
+    <CR>  (|g:fuf_keyOpen|)        - opens in a previous window.
+    <C-j> (|g:fuf_keyOpenSplit|)   - opens in a split window.
+    <C-k> (|g:fuf_keyOpenVsplit|)  - opens in a vertical-split window.
+    <C-l> (|g:fuf_keyOpenTabpage|) - opens in a new tab page.
+
+  for more details visit https://github.com/vim-scripts/FuzzyFinder
+
+MiniBufexplorer --
+  Elegant buffer explorer - takes very little screen space 
+  usage
+    <C-tab> move around files
+    in mini buffer
+      usage
+        s -- split horizontaly
+        v -- split vertically
+
+NeoComplcache
+  Complete things as we type
+  usage
+    this plugin will complete things as we type will be used for setting
+    up a complete python IDE
+
+
+vim-repeat
+  enable repeating supported plugin maps with "."
+  usage
+    Press "."
