@@ -411,6 +411,7 @@ if has("mac")
   map <D-k> gk
 else
   map <F2> :NERDTreeToggle<CR>
+  map <F3> :FufFile<CR>
 " map <F3> :TagbarToggle<CR>
 " map <F4> :noh<CR>
 " map <F5> :GundoToggle<CR>
