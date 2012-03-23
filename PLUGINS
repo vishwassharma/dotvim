@@ -74,5 +74,16 @@ FuzzyFinder Plugin
     <C-j> (|g:fuf_keyOpenSplit|)   - opens in a split window.
     <C-k> (|g:fuf_keyOpenVsplit|)  - opens in a vertical-split window.
     <C-l> (|g:fuf_keyOpenTabpage|) - opens in a new tab page.
-  
+
   for more details visit https://github.com/vim-scripts/FuzzyFinder
+
+MiniBufexplorer --
+  Elegant buffer explorer - takes very little screen space 
+  usage
+    <C-tab> move around files
+    in mini buffer
+      usage
+        s -- split horizontaly
+        v -- split vertically
+
+

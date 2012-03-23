@@ -1,4 +1,5 @@
 *.netrwhist
+.vim
 *.swp
 .netrwhist
 ftplugin/
