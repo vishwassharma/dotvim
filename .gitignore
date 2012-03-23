@@ -1,0 +1,7 @@
+*.netrwhist
+plugin
+.VimballRecord
+.vim
+*.swp
+.netrwhist
+ftplugin/
