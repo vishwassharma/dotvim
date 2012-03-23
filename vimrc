@@ -22,7 +22,7 @@ filetype off
 " Vundle
 " ----------------------------------------
 set rtp+=$HOME/vimfiles/bundle/vundle/
-call vundle#rc("$HOME/vimfiles/bundle/")
+call vundle#rc()
 
 
 " let Vundle manage Vundle
