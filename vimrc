@@ -154,9 +154,10 @@ set showmode		" Show current mode
 " ----------------------
 " tabs setting
 " ----------------------
-set tabstop=2
+set tabstop=8
+set softtabstop=4
 set backspace=2 " Delete everything with backspace
-set shiftwidth=2  " Tabs under smart indent
+set shiftwidth=4  " Tabs under smart indent
 set cindent
 set autoindent
 set smarttab
@@ -186,6 +187,7 @@ set undolevels=200
 set showtabline=2
 set cursorline    	" Cursor line to see where my cursor is, smart.
 set t_Co=256
+
 
 
 " ------- SOUND ------
@@ -384,8 +386,9 @@ nmap <silent> <leader>cs :close<CR>
 " ----------------------
 " HTML
 " ----------------------
-autocmd FileType html,markdown,htmldjango setlocal omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" autocmd FileType html,markdown,htmldjango setlocal omnifunc=htmlcomplete#CompleteTags
+
+autocmd FileType htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " autocmd FileType xhtml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " ----------------------
@@ -408,7 +411,8 @@ autocmd FileType html,markdown,htmldjango setlocal omnifunc=htmlcomplete#Complet
 " make Python follow PEP8 (http://www.python.org/dev/peps/pep-0008/)
 " ----------------------
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-" autocmd FileType python set softtabstop=4 tabstop=4 shiftwidth=4
+" autocmd FileType python set softtabstop=4 tabstop=4 shiftwidth=4 copyindent
+autocmd FileType python set shiftwidth=4 softtabstop=4 tabstop=4 autoindent expandtab smarttab
 " autocmd FileType less set softtabstop=2 tabstop=2 shiftwidth=2
 " autocmd BufNewFile,BufRead admin.py setlocal filetype=python.django
 " autocmd BufNewFile,BufRead urls.py setlocal filetype=python.django
