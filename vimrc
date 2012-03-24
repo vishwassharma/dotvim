@@ -35,6 +35,7 @@ Bundle "gmarik/vundle"
 
 Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle "bingaman/vim-sparkup"
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-surround'
 Bundle 'kchmck/vim-coffee-script'
