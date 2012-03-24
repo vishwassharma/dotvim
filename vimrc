@@ -57,7 +57,9 @@ Bundle 'Shougo/neocomplcache'
 
 " -------Language Additions
 " -------------- html
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" https://github.com/kogakure/vim-sparkup.git
+Bundle "kogakure/vim-sparkup"
 " -------------- Ruby
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-haml'
@@ -209,7 +211,8 @@ set statusline+=\ \ \ [%{&ff}/%Y]
 set statusline+=\ \ \ %<%20.30(%{hostname()}:%{CurDir()}%)\ 
 set statusline+=%=%-10.(%l,%c%V%)\ %p%%/%L
 
-"---------------------------------------------------------------------------" ENCODING SETTINGS
+"---------------------------------------------------------------------------
+" ENCODING SETTINGS
 "--------------------------------------------------------------------------- 
 set encoding=utf-8                                  
 set termencoding=utf-8
@@ -360,17 +363,73 @@ nmap <silent> <C-p> :wincmd p<CR>
 " Equal Size Windows
 nmap <silent> <leader>w= :wincmd =<CR>
 
+
 " Window Splitting
 nmap <silent> <leader>sh :split<CR>
 nmap <silent> <leader>sv :vsplit<CR>
+nmap <silent> <leader>sc :close<CR>
 " Because I'm dyslexic
 nmap <silent> <leader>hs :split<CR>
 nmap <silent> <leader>vs :vsplit<CR>
-nmap <silent> <leader>sc :close<CR>
+nmap <silent> <leader>cs :close<CR>
 
 " ----------------------------------------
 " Auto Commands
 " ----------------------------------------
+" ----------------------
+" FILETYPE OPERATIONS
+" ----------------------
+" Enable omni completion. (Ctrl-X Ctrl-O)
+" autocmd FileType Makefile set noexpandtab
+" ----------------------
+" HTML
+" ----------------------
+autocmd FileType html,markdown,htmldjango setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" autocmd FileType xhtml setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" ----------------------
+" Javascript
+" ----------------------
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd BufNewFile,BufRead *.json set ft=javascript
+" autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" autocmd FileType less setlocal ai
+" autocmd FileType less setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" autocmd FileType coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" ----------------------
+" CSS
+" ----------------------
+" autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+" autocmd BufNewFile,BufRead *.scss set ft=scss.css  " scss
+" autocmd BufNewFile,BufRead *.sass set ft=sass.css  " sass
+" ----------------------
+" python
+" make Python follow PEP8 (http://www.python.org/dev/peps/pep-0008/)
+" ----------------------
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType python set softtabstop=4 tabstop=4 shiftwidth=4
+" autocmd FileType less set softtabstop=2 tabstop=2 shiftwidth=2
+" autocmd BufNewFile,BufRead admin.py setlocal filetype=python.django
+" autocmd BufNewFile,BufRead urls.py setlocal filetype=python.django
+" autocmd BufNewFile,BufRead models.py setlocal filetype=python.django
+" autocmd BufNewFile,BufRead views.py setlocal filetype=python.django
+" autocmd BufNewFile,BufRead settings.py setlocal filetype=python.django
+" autocmd BufNewFile,BufRead forms.py setlocal filetype=python.django
+" ----------------------
+" ruby
+" ----------------------
+" autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
+" autocmd BufNewFile,BufRead *.ru setfiletype ruby
+" autocmd BufNewFile,BufRead Gemfile setfiletype ruby
+" autocmd BufNewFile,BufRead Capfile setfiletype ruby
+" ----------------------
+" others
+" code indentation and file detection
+" ----------------------
+" autocmd BufNewFile,BufRead _vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" autocmd BufNewFile,BufRead .vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 if has("autocmd")
   " No formatting on o key newlines
@@ -386,9 +445,17 @@ if has("autocmd")
         \   exe "normal! g`\"" |
         \ endif
 endif
+
 " ----------------------------------------
 " Plugin Configuration
 " ----------------------------------------
+
+" ---------------
+" easyMotion
+" ---------------
+"let g:EasyMotion_leader_key = '<Leader>m' " default is <Leader>w
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment
 
 " ---------------
 " SuperTab
@@ -459,10 +526,12 @@ endif
 " ---------------
 " NERDTree
 " ---------------
-nnoremap <leader>nn :NERDTreeToggle<CR>
-nnoremap <leader>nf :NERDTreeFind<CR>
+let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\.bak$', '\~$']
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2 " Change the NERDTree directory to the root node
+" let NERDTreeShowFiles=1 " Tell Nerd tree to show files at startup
+autocmd VimEnter * NERDTree " Show nerdtree at startup
+" autocmd VimEnter * wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " ---------------
@@ -596,7 +665,20 @@ let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails'
 let g:snipMate.scope_aliases['python']= 'python,django'
 let g:snipMate.scope_aliases['html']= 'html,htmldjango'
- 
+
+" ---------------
+" surround
+" ---------------
+let b:surround_{char2nr("v")} = "{{ \r }}"
+let b:surround_{char2nr("{")} = "{{ \r }}"
+let b:surround_{char2nr("%")} = "{% \r %}"
+let b:surround_{char2nr("b")} = "{% block \1block name: \1 %}\r{% endblock \1\1 %}"
+let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
+let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
+let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
+let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
+
+
 " ----------------------------------------
 " Functions
 " ----------------------------------------
@@ -684,25 +766,24 @@ map <leader>pt :PasteURLTitle<CR>
 
 endif " endif has('ruby')
 
-" ---------------
-" Fix Trailing White Space
-" ---------------
-map <leader>ws :%s/\s\+$//e<CR>
-command! FixTrailingWhiteSpace :%s/\s\+$//e
 
-" ---------------
-" Quick spelling fix (first item in z= list)
-" ---------------
-function! QuickSpellingFix()
-  if &spell
-    normal 1z=
-  else
-    " Enable spelling mode and do the correction
-    set spell
-    normal 1z=
-    set nospell
-  endif
-endfunction
-
-command! QuickSpellingFix call QuickSpellingFix()
-nmap <silent> <leader>z :QuickSpellingFix<CR>
+"--------------------------------------------------------------------------- 
+" PLUGIN BINDING
+"--------------------------------------------------------------------------- 
+" Useful keyboard-shortcuts
+if has("mac")
+  map <D-2> :NERDTreeToggle<CR>
+  map <D-3> :TagbarToggle<CR>
+  map <D-4> :noh<CR>
+  map <D-5> :GundoToggle<CR>
+  map <D-6> :JSLintToggle<CR>
+  map <D-j> gj
+  map <D-k> gk
+else
+  map <F2> :NERDTreeToggle<CR>
+  map <F3> :NERDTreeFind<CR>
+" map <F3> :TagbarToggle<CR>
+" map <F4> :noh<CR>
+" map <F5> :GundoToggle<CR>
+" map <F6> :JSLintToggle<CR>
+endif
