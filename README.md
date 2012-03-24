@@ -2,16 +2,16 @@
 
 ## Installation
 
-1. `git clone http://github.com/vishwassharma/dotvim.git` in your home folder
+1. `git clone http://github.com/vishwassharma/dotvim.git vimfiles` in your home folder
 2. Make link
   - In Windows (start cmd.exe with admin permission)
-        * `mklink /D .vim dotvim`
-        * `mklink _vimrc dotvim/vimrc`
-        * `mklink _gvimrc dotvim/gvimrc`
+        * `mklink /D .vim vimfiles`
+        * `mklink _vimrc vimfiles/vimrc`
+        * `mklink _gvimrc vimfiles/gvimrc`
   - In Ubuntu 
-      * `ln -s dotvim .vim`
-      * `ln -s dotvim\vimrc .vimrc`
-      * `ln -s dotvim\gvimrc .gvimrc`
+      * `ln -s vimfiles .vim`
+      * `ln -s vimfiles\vimrc .vimrc`
+      * `ln -s vimfiles\gvimrc .gvimrc`
 3. Install [Vundle](https://github.com/gmarik/vundle) with `git clone http://github.com/gmarik/vundle.git bundle/vundle` 
 4. Run Vim and type `:BundleInstall` to install the plugins with Vundle.
 
