@@ -1,17 +1,14 @@
-
 " =======================================
-" Who: Jeremy Mack (@mutewinter)
-" What: .vimrc of champions
-" Version: 1.0 (this may never change because who versions dot files,
-" honestly)
+" Who: Vishwas Sharma
+" What: _vimrc of better life
 " =======================================
 
 " ----------------------------------------
 " Vundle
 " ----------------------------------------
-
-set nocompatible " be iMproved
-filetype off     " required!
+set nocompatible	" not compatible with the old-fashion vi mode
+" Note - 'filetype off' when already off causes a non-zero exit code from vim.
+filetype off
 
 set rtp+=$HOME/.vim/bundle/vundle/
 call vundle#rc()
@@ -23,7 +20,7 @@ Bundle 'gmarik/vundle'
 " Plugin Bundles
 " ---------------
 
-" Navigation
+" ------- Navigation
 Bundle 'ZoomWin'
 " Bundle 'wincent/Command-T'
 " This fork is required due to remapping ; to :
@@ -31,14 +28,16 @@ Bundle 'ZoomWin'
 Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'mutewinter/LustyJuggler'
 " Bundle 'kien/ctrlp.vim'
-" UI Additions
+
+" ------- UI Additions
 Bundle 'mutewinter/vim-indent-guides'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 " Bundle 'Rykka/ColorV'
 Bundle 'nanotech/jellybeans.vim'
 " Bundle 'tomtom/quickfixsigns_vim'
-" Commands
+
+" ------- Commands
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 " Bundle 'tpope/vim-speeddating'
@@ -55,18 +54,21 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
 Bundle 'gregsexton/MatchTag'
 Bundle 'Shougo/neocomplcache'
-" Language Additions
-"   Ruby
+
+" -------Language Additions
+" -------------- html
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" -------------- Ruby
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
-"   JavaScript
+" --------------  JavaScript
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
-"   Other Languages
+" --------------  Other Languages
 " Bundle 'msanders/cocoa.vim'
 " Bundle 'mutewinter/taskpaper.vim'
 " Bundle 'mutewinter/nginx.vim'
@@ -79,19 +81,21 @@ Bundle 'hallison/vim-markdown'
 " Bundle 'matchit.zip'
 " Bundle 'kana/vim-textobj-user'
 " Bundle 'nelstrom/vim-textobj-rubyblock'
-" Libraries
+
+" ------- Libraries
 " Bundle 'L9'
 Bundle 'tpope/vim-repeat'
 " Bundle 'tomtom/tlib_vim'
-" Install dependencies:
-Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "MarcWeber/vim-addon-mw-utils" 
 Bundle "tomtom/tlib_vim"
-Bundle "snipmate-snippets"
 
-" Install
+" ------- Snippets
+" Install dependencies:
+Bundle "snipmate-snippets"
 Bundle "garbas/vim-snipmate"
 " Install custom plugins
 Bundle "vishwassharma/happy-snippets"
+
 " let g:snipMate = {}
 " let g:snipMate.scope_aliases = {}
 " let g:snipMate.scope_aliases['ruby'] = 'ruby, ruby-rails'
@@ -102,14 +106,167 @@ Bundle "vishwassharma/happy-snippets"
 
 filetype plugin indent on  " Automatically detect file types. (must turn on after Vundle)
 
-" Set leader to ,
-" Note: This line MUST come before any <leader> mappings
-let mapleader=","
+" ----------------------
+" THEMES
+" SET COLOR SCHEME
+" ----------------------
+colorscheme jellybeans
+
+" ----------------------
+" General Settings
+" -----------------------
+" All the small things(tm)
+" -----------------------
+" ------- COLOR ------
+set background=dark     " Set syntax highlighting
+" ------- UI ------
+set number              " show line numbers
+set wrap            " set wrap for lines
+set ruler		" show the cursor position all the time
+set title           " show title in the console title bar
+set ttyfast         " smoother changes
+set numberwidth=4       " line numbering takes up to 4 spaces
+set showmatch		" Cursor shows matching ) and }
+set ls=2            " always show status line
+set cmdheight=2     " cmd height
+set laststatus=2    " show last status?
+
+" ------- BEHAVIOUR ------
+syntax enable
+set autoread		" auto read when file is changed from outside
+set history=50		" keep 50 lines of command line history
+set hidden              " Change buffer without saving
+set wildmenu            " wild char completion menu
+set wildchar=<TAB>	" start wild expansion in the command line using <TAB>
+set wildmode=list:longest,list:full
+set wildignore=*.o,*.class,*.pyc 
+set cf                  " Enable error files and error jumping
+set clipboard+=unnamed	" yank to the system register (*) by default
+set autowrite           " write on make/shell command
+set timeoutlen=350      " time to wait for a command (after leader for example,)
+set foldlevelstart=99   " remove folds
+set formatoptions=crql  
+set showmode		" Show current mode
+
+" ------- TEXT FOMAT ------
+" ----------------------
+" tabs setting
+" ----------------------
+set tabstop=2
+set backspace=2 " Delete everything with backspace
+set shiftwidth=2  " Tabs under smart indent
+set cindent
+set autoindent
+set smarttab
+set expandtab
+set bs=2		" allow backspacing over everything in insert mode
+
+" set softtabstop=2 
+" set copyindent		" copy the previous indentation on autoindenting
+" set linebreak       	" linebreaks
+
+" ------- SEARCHING -----
+set ignorecase		" ignore case when searching
+set smartcase		" ignore case if search pattern is all lowercase,case-sensitive otherwise
+set incsearch		" incremental search
+set hlsearch		" search highlighting
+set nobackup		" no *~ backup files
+set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,.sass-cache,*.class
+
+" ------- VISUAL ------
+set showcmd         	" display incomplete commands
+set scrolloff=5     	" keep 5 lines when scrolling
+set showmatch       	" show matching braces
+set matchtime=2	    	" how many tenths of a second to blink
+set shortmess=atI   	" abbreviate messages
+set nostartofline   	" don't jump to first character when paging
+set undolevels=200
+set showtabline=2
+set cursorline    	" Cursor line to see where my cursor is, smart.
+set t_Co=256
+
+
+" ------- SOUND ------
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" ------- MOUSE ------
+set mousehide		" Hide mouse after chars typed
+set mouse=a         	" enable mouse
+
+
+" ------- OTHER ------
+set complete=.,w,b,u,U	" Better complete options to speed it up
+
+" ----------------------
+" status line
+" ----------------------
+set laststatus=2
+set statusline=\ %{HasPaste()}%<%-15.25(%f%)%m%r%h\ %w\ \ 
+set statusline+=\ \ \ [%{&ff}/%Y] 
+set statusline+=\ \ \ %<%20.30(%{hostname()}:%{CurDir()}%)\ 
+set statusline+=%=%-10.(%l,%c%V%)\ %p%%/%L
+
+"---------------------------------------------------------------------------" ENCODING SETTINGS
+"--------------------------------------------------------------------------- 
+set encoding=utf-8                                  
+set termencoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
+
+" ----------------------
+" Function with ENCODING SETTINGS
+" ----------------------
+fun! ViewUTF8()
+	set encoding=utf-8                                  
+	set termencoding=big5
+endfun
+
+fun! UTF8()
+	set encoding=utf-8                                  
+	set termencoding=big5
+	set fileencoding=utf-8
+	set fileencodings=ucs-bom,big5,utf-8,latin1
+endfun
+
+fun! Big5()
+	set encoding=big5
+	set fileencoding=big5
+endfun
+
+" ---------------
+" Fix Trailing White Space
+" ---------------
+map <leader>ws :%s/\s\+$//e<CR>
+command! FixTrailingWhiteSpace :%s/\s\+$//e
+
+" ----------------------
+" Function with status line
+" ----------------------
+function! CurDir()
+    let curdir = substitute(getcwd(), $HOME, "~", "")
+    return curdir
+endfunction
+
+function! HasPaste()
+    if &paste
+        return '[PASTE]'
+    else
+        return ''
+    endif
+endfunction
+
+" ----------------------
+" Restore cursor to file position in previous editing session
+" ----------------------
+set viminfo='10,\"100,:20,%,n~/.viminfo
+autocmd BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 " ----------------------------------------
 " Platform Specific Configuration
 " ----------------------------------------
-
 if has('win32') || has('win64')
   " Windows
   source $VIMRUNTIME/mswin.vim
@@ -139,99 +296,16 @@ elseif has('gui_macvim')
   set macmeta
 endif
 
-" ----------------------------------------
-" Regular Vim Configuration (No Plugins Needed)
-" ----------------------------------------
+"--------------------------------------------------------------------------- 
+" USEFUL SHORTCUTS
+"--------------------------------------------------------------------------- 
+" set leader to ,
+let mapleader=","
+let g:mapleader=","
 
-" ---------------
-" Color
-" ---------------
-set background=dark
-colorscheme jellybeans
-
-" ---------------
-" Backups
-" ---------------
-set backup
-set backupdir=$HOME/.vim/backup
-set directory=$HOME/.vim/tmp
-
-" ---------------
-" UI
-" ---------------
-set ruler  " Ruler on
-set nu  " Line numbers on
-set nowrap  " Line wrapping off
-set laststatus=2  " Always show the statusline
-set cmdheight=2
-set encoding=utf-8
-
-" ---------------
-" Behaviors
-" ---------------
-syntax enable
-set autoread           " Automatically reload changes if detected
-set wildmenu           " Turn on WiLd menu
-set hidden             " Change buffer - without saving
-set history=768        " Number of things to remember in history.
-set cf                 " Enable error files & error jumping.
-set clipboard+=unnamed " Yanks go on clipboard instead.
-set autowrite          " Writes on make/shell commands
-set timeoutlen=350     " Time to wait for a command (after leader for example)
-set foldlevelstart=99  " Remove folds
-set formatoptions=crql
-
-" ---------------
-" Text Format
-" ---------------
-set tabstop=2
-set backspace=2 " Delete everything with backspace
-set shiftwidth=2  " Tabs under smart indent
-set cindent
-set autoindent
-set smarttab
-set expandtab
-set backspace=2
-
-" ---------------
-" Searching
-" ---------------
-set ignorecase " Case insensitive search
-set smartcase " Non-case sensitive search
-set incsearch
-set hlsearch
-set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,.sass-cache,*.class
-
-" ---------------
-" Visual
-" ---------------
-set showmatch  " Show matching brackets.
-set matchtime=2 " How many tenths of a second to blink
-
-" ---------------
-" Sounds
-" ---------------
-set noerrorbells
-set novisualbell
-set t_vb=
-
-" ---------------
-" Mouse
-" ---------------
-set mousehide  " Hide mouse after chars typed
-set mouse=a  " Mouse in all modes
-
-" Better complete options to speed it up
-set complete=.,w,b,u,U
-
-" ----------------------------------------
-" Bindings
-" ----------------------------------------
 " Fixes common typos
 command W w
 command Q q
-map <F1> <Esc>
-imap <F1> <Esc>
 
 " Removes doc lookup binding because it's easy to fat finger
 nmap K k
@@ -256,14 +330,20 @@ endif
 " Use ; for : in normal and visual mode, less keystrokes
 nnoremap ; :
 vnoremap ; :
-" double percentage sign in command mode is expanded
-" to directory of current file - http://vimcasts.org/e/14
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+" allow multiple indentation/deindentation in visual mode
+vnoremap < <gv
+vnoremap > >gv
+
+" Map ,e to open files in the same directory as the current file
+map <leader>e :e <C-R>=expand("%:h")<cr>\
+
+" ,/ turn off search highlighting
+nmap <leader>/ :nohl<CR>
 
 " ---------------
 " Leader Commands
 " ---------------
-
 " Toggle spelling mode with ,s
 nmap <silent> <leader>s :set spell!<CR>
 " Edit vimrc with ,v
