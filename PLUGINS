@@ -1,6 +1,0 @@
-snippets
-  :SnipMateOpenSnippetFiles 
-    Show all valid nippet locations will be shown in a list.
-  usage
-    <c-r><tab> : shows a list of all available snippets
-    
