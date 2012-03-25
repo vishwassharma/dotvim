@@ -274,7 +274,8 @@ autocmd BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '
 " ----------------------------------------
 set guioptions-=T " Toolbar
 set guioptions-=m " Menubar
-
+set lines=60
+set columns=120
 if has('win32') || has('win64')
   " Windows
   source $VIMRUNTIME/mswin.vim
