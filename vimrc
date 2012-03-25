@@ -60,6 +60,8 @@ Bundle 'Shougo/neocomplcache'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " https://github.com/kogakure/vim-sparkup.git
 Bundle "kogakure/vim-sparkup"
+" -------------- pythoncomplete
+Bundle "vim-scripts/pythoncomplete"
 " -------------- Ruby
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-haml'
@@ -107,6 +109,7 @@ Bundle "vishwassharma/happy-snippets"
 " let g:snips_trigger_key='<c-space>'
 
 filetype plugin indent on  " Automatically detect file types. (must turn on after Vundle)
+set ofu=syntaxcomplete#Complete
 
 " ----------------------
 " THEMES
@@ -188,8 +191,6 @@ set showtabline=2
 set cursorline    	" Cursor line to see where my cursor is, smart.
 set t_Co=256
 
-
-
 " ------- SOUND ------
 set noerrorbells
 set novisualbell
@@ -199,7 +200,6 @@ set tm=500
 " ------- MOUSE ------
 set mousehide		" Hide mouse after chars typed
 set mouse=a         	" enable mouse
-
 
 " ------- OTHER ------
 set complete=.,w,b,u,U	" Better complete options to speed it up
@@ -387,8 +387,8 @@ nmap <silent> <leader>cs :close<CR>
 " HTML
 " ----------------------
 " autocmd FileType html,markdown,htmldjango setlocal omnifunc=htmlcomplete#CompleteTags
-
-autocmd FileType htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" autocmd FileType html,htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" autocmd FileType html,htmldjango set shiftwidth=4 softtabstop=4 tabstop=4 autoindent expandtab smarttab
 " autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " autocmd FileType xhtml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " ----------------------
@@ -409,7 +409,10 @@ autocmd FileType htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " ----------------------
 " python
 " make Python follow PEP8 (http://www.python.org/dev/peps/pep-0008/)
-" ----------------------
+" -------
+"  set completeopt-=preview " to remove docs 
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif 
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 " autocmd FileType python set softtabstop=4 tabstop=4 shiftwidth=4 copyindent
 autocmd FileType python set shiftwidth=4 softtabstop=4 tabstop=4 autoindent expandtab smarttab
@@ -418,7 +421,7 @@ autocmd FileType python set shiftwidth=4 softtabstop=4 tabstop=4 autoindent expa
 " autocmd BufNewFile,BufRead urls.py setlocal filetype=python.django
 " autocmd BufNewFile,BufRead models.py setlocal filetype=python.django
 " autocmd BufNewFile,BufRead views.py setlocal filetype=python.django
-" autocmd BufNewFile,BufRead settings.py setlocal filetype=python.django
+" autocmd BufNewFile,BuRead settings.py setlocal filetype=python.django
 " autocmd BufNewFile,BufRead forms.py setlocal filetype=python.django
 " ----------------------
 " ruby
@@ -467,7 +470,9 @@ hi link EasyMotionShade  Comment
 " Set these up for cross-buffer completion (something Neocachecompl has a hard
 " time with)
 let g:SuperTabDefaultCompletionType="<c-x><c-n>"
+" let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 let g:SuperTabContextDefaultCompletionType="<c-x><c-n>"
+let g:SuperTabDefaultCompletionType = "context"
 
 " ---------------
 " Neocachecompl
@@ -530,13 +535,30 @@ endif
 " ---------------
 " NERDTree
 " ---------------
-let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\.bak$', '\~$']
+" let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\.bak$', '\~$']
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2 " Change the NERDTree directory to the root node
 " let NERDTreeShowFiles=1 " Tell Nerd tree to show files at startup
+" let loaded_nerd_tree=1 " let vim can not load NERDTree.
+let NERDChristmasTree = 1 " colourful. =0 for more vanilla looking tree.
+let NERDTreeAutoCenter = 1 " default = 1.
+let NERDTreeAutoCenterThreshold = 3 " default = 3.
+let NERDTreeCaseSensitiveSort = 0 " default = 0.
+let NERDTreeChDirMode = 1 " 0/1/2
+let NERDTreeHighlightCursorline = 1 " highlight cursorline.
+let NERDTreeHijackNetrw = 1 " for :edit <dir> open 'secondary' NERD tree.
+let NERDTreeIgnore = ['\~$', '\.log', '\.pyo', '\.pyc', '\.swp', '\.bak', '\.git', '\.hg']
+" let NERDTreeBookmarksFile="$HOME/.vim/NERDTreeBookmarks" " where Bookmarks are saved.
+let NERDTreeQuitOnOpen = 0 " does not close after open. default=0.
+let NERDTreeShowBookmarks = 1 " show Bookmarks when open NERD-tree.
+let NERDTreeShowHidden = 0 " does not show hidden files.
+let NERDTreeShowLineNumbers = 0 " do not show line numbers, default=0
+let NERDTreeWinPos = "right" " NERD-tree window position.
+" let NERDTreeWinSize = 20 " window size, default=31.
+" nnoremap <silent> <F11> :NERDTreeToggle<CR>
 autocmd VimEnter * NERDTree " Show nerdtree at startup
 " autocmd VimEnter * wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == \"primary\") | q | endif
 
 " ---------------
 " Indent Guides
@@ -791,3 +813,6 @@ else
 " map <F5> :GundoToggle<CR>
 " map <F6> :JSLintToggle<CR>
 endif
+
+" autocmd FileType html set ft=htmldjango.html " For SnipMate
+nmap <leader>d :set ft=htmldjango.html<CR>
