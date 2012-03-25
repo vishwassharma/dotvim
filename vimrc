@@ -272,12 +272,15 @@ autocmd BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '
 " ----------------------------------------
 " Platform Specific Configuration
 " ----------------------------------------
+set guioptions-=T " Toolbar
+set guioptions-=m " Menubar
+
 if has('win32') || has('win64')
   " Windows
   source $VIMRUNTIME/mswin.vim
   set guifont=Consolas:h10
-  set guioptions-=T " Toolbar
-  set guioptions-=m " Menubar
+  " set guioptions-=T " Toolbar
+  " set guioptions-=m " Menubar
 
   " Set height and width on Windows
   set lines=60
