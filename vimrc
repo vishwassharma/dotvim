@@ -22,10 +22,11 @@ Bundle 'gmarik/vundle'
 
 " ------- Navigation
 Bundle 'ZoomWin'
-" Bundle 'wincent/Command-T'
+Bundle 'wincent/Command-T'
 " This fork is required due to remapping ; to :
 " Bundle 'christoomey/vim-space'
 Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'vim-scripts/tag_list.vim'
 " Bundle 'mutewinter/LustyJuggler'
 " Bundle 'kien/ctrlp.vim'
 
@@ -147,6 +148,7 @@ set wildmode=list:longest,list:full
 set wildignore=*.o,*.class,*.pyc 
 set cf                  " Enable error files and error jumping
 set clipboard+=unnamed	" yank to the system register (*) by default
+" set clipboard+=unnamedplus	" yank to the system register (*) by default
 set autowrite           " write on make/shell command
 set timeoutlen=350      " time to wait for a command (after leader for example,)
 set foldlevelstart=99   " remove folds
@@ -560,7 +562,7 @@ let NERDTreeShowLineNumbers = 0 " do not show line numbers, default=0
 let NERDTreeWinPos = "right" " NERD-tree window position.
 " let NERDTreeWinSize = 20 " window size, default=31.
 " nnoremap <silent> <F11> :NERDTreeToggle<CR>
-autocmd VimEnter * NERDTree " Show nerdtree at startup
+" autocmd VimEnter * NERDTree " Show nerdtree at startup
 " autocmd VimEnter * wincmd p
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == \"primary\") | q | endif
 

@@ -25,6 +25,12 @@
 
 Be sure to always edit the vimrc using `,v`, which opens the vimrc in the .vim folder. Vim has a nasty habit of overriding symlinks.
 
+#### Installation instruction for command-t
+1. Get Command Tags 
+2. `sudo apt-get install libruby ruby-dev`
+3. `cd ~/.vim/bundle/Command-T/ruby/command-t`
+4. `ruby extconf.rb`
+5. `make`
 
 ## Plugin List
 
