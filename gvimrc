@@ -14,3 +14,8 @@ if has('gui_macvim')
   macmenu &Tools.List\ Errors key=<nop>
 endif
 
+" ----------------
+" COPY _PASTE FIX
+" ----------------
+"
+so $VIMRUNTIME/mswin.vim
