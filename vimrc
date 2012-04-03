@@ -54,7 +54,7 @@ Bundle 'Raimondi/delimitMate'
 " Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
 Bundle 'gregsexton/MatchTag'
-Bundle 'Shougo/neocomplcache'
+" Bundle 'Shougo/neocomplcache'
 
 " -------Language Additions
 " -------------- html
