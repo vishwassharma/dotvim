@@ -822,7 +822,7 @@ if has("mac")
 else
   map <F2> :NERDTreeToggle<CR>
   map <F3> :NERDTreeFind<CR>
-  map <F3>  <leader>lj<CR>
+  map <F3>  <leader>lj
 " map <F3> :TagbarToggle<CR>
 " map <F4> :noh<CR>
 " map <F5> :GundoToggle<CR>
