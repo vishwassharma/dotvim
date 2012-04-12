@@ -703,6 +703,7 @@ let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails'
 let g:snipMate.scope_aliases['python']= 'python,django'
 let g:snipMate.scope_aliases['html']= 'html,htmldjango'
+let g:snips_author = "Vishwas Sharma"
 
 " ---------------
 " surround
@@ -828,3 +829,5 @@ endif
 
 " autocmd FileType html set ft=htmldjango.html " For SnipMate
 nmap <leader>d :set ft=htmldjango.html<CR>
+nmap <leader>f zfa)<CR>
+nmap <leader>fo zo<CR>
