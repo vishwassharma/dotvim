@@ -28,6 +28,7 @@ Bundle 'wincent/Command-T'
 Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'vim-scripts/tag_list.vim'
 " Bundle 'mutewinter/LustyJuggler'
+Bundle "vim-scripts/LustyJuggler"
 " Bundle 'kien/ctrlp.vim'
 
 " ------- UI Additions
@@ -37,7 +38,7 @@ Bundle 'scrooloose/nerdtree'
 " Bundle 'Rykka/ColorV'
 Bundle 'nanotech/jellybeans.vim'
 " Bundle 'tomtom/quickfixsigns_vim'
-Bundle "fholgado/minibufexpl.vim"
+"Bundle 'fholgado/minibufexpl.vim'
 " ------- Commands
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
@@ -49,7 +50,7 @@ Bundle 'tpope/vim-fugitive'
 " Bundle 'milkypostman/vim-togglelist'
 " Automatic Helpers
 " Bundle 'IndexedSearch'
-" Bundle 'xolox/vim-session'
+Bundle 'xolox/vim-session'
 Bundle 'Raimondi/delimitMate'
 " Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
@@ -821,6 +822,7 @@ if has("mac")
 else
   map <F2> :NERDTreeToggle<CR>
   map <F3> :NERDTreeFind<CR>
+  map <F3>  <leader>lj<CR>
 " map <F3> :TagbarToggle<CR>
 " map <F4> :noh<CR>
 " map <F5> :GundoToggle<CR>
