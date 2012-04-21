@@ -61,7 +61,9 @@ Bundle 'gregsexton/MatchTag'
 " -------------- html
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " https://github.com/kogakure/vim-sparkup.git
-Bundle "kogakure/vim-sparkup"
+"Bundle "kogakure/vim-sparkup"
+Bundle "mattn/zencoding-vim"
+" <c-y>,
 " -------------- pythoncomplete
 Bundle "vim-scripts/pythoncomplete"
 " -------------- Ruby
@@ -82,6 +84,7 @@ Bundle 'itspriddle/vim-jquery'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 " Bundle 'acustodioo/vim-tmux'
 Bundle 'hallison/vim-markdown'
+Bundle 'jade.vim'
 " Bundle 'xhtml.vim--Grny'
 " MatchIt
 " Bundle 'matchit.zip'
@@ -718,6 +721,18 @@ let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
 let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
 let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 
+" ---------------
+" vim-coffeescripts
+" ---------------
+function DoCoffeeCommands()
+    map <F4> :CoffeeCompile vert<CR>
+    setl scrollbind
+endfunction
+
+let coffee_compiler = '/usr/bin/coffee'
+
+au BufNewFile,BufRead *.coffee call DoCoffeeCommands()
+au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
 " ----------------------------------------
 " Functions
