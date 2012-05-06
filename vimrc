@@ -61,8 +61,8 @@ Bundle 'gregsexton/MatchTag'
 " -------------- html
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " https://github.com/kogakure/vim-sparkup.git
-"Bundle "kogakure/vim-sparkup"
-Bundle "mattn/zencoding-vim"
+Bundle "kogakure/vim-sparkup"
+"Bundle 'mattn/zencoding-vim'
 " <c-y>,
 " -------------- pythoncomplete
 Bundle "vim-scripts/pythoncomplete"
@@ -76,7 +76,9 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
+Bundle 'vim-scripts/jade.vim'
 " --------------  Other Languages
+Bundle "othree/xml.vim"
 " Bundle 'msanders/cocoa.vim'
 " Bundle 'mutewinter/taskpaper.vim'
 " Bundle 'mutewinter/nginx.vim'
@@ -410,6 +412,7 @@ nmap <silent> <leader>cs :close<CR>
 " autocmd FileType less setlocal ai
 " autocmd FileType less setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " autocmd FileType coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType coffee set shiftwidth=4 softtabstop=4 tabstop=4 autoindent expandtab smarttab
 " ----------------------
 " CSS
 " ----------------------
@@ -732,7 +735,7 @@ endfunction
 let coffee_compiler = '/usr/bin/coffee'
 
 au BufNewFile,BufRead *.coffee call DoCoffeeCommands()
-au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
+"au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
 " ----------------------------------------
 " Functions
