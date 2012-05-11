@@ -143,6 +143,8 @@ set ls=2            " always show status line
 set cmdheight=2     " cmd height
 set laststatus=2    " show last status?
 
+set backupdir="/tmp/"
+
 " ------- BEHAVIOUR ------
 syntax enable
 set autoread		" auto read when file is changed from outside
