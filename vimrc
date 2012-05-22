@@ -100,6 +100,10 @@ Bundle 'tpope/vim-repeat'
 Bundle "MarcWeber/vim-addon-mw-utils" 
 Bundle "tomtom/tlib_vim"
 
+" Sublime  Text goodies
+Bundle "mikewest/vimroom.git"
+Bundle "mklabs/vim-fetch.git"
+Bundle "mklabs/vim-backbone.git"
 " ------- Snippets
 " Install dependencies:
 Bundle "snipmate-snippets"
@@ -318,6 +322,27 @@ elseif has('gui_macvim')
   " Use option (alt) as meta key.
   set macmeta
 endif
+
+
+""" FocusMode
+function! ToggleFocusMode()
+  if (&foldcolumn != 12)
+    set laststatus=0
+    set numberwidth=10
+    set foldcolumn=12
+    set noruler
+    hi FoldColumn ctermbg=none
+    hi LineNr ctermfg=0 ctermbg=none
+    hi NonText ctermfg=0
+  else
+    set laststatus=2
+    set numberwidth=4
+    set foldcolumn=0
+    set ruler
+    execute 'colorscheme ' . g:colors_name
+  endif
+endfunc
+
 
 "--------------------------------------------------------------------------- 
 " USEFUL SHORTCUTS
@@ -735,7 +760,7 @@ let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 " ---------------
 function DoCoffeeCommands()
     map <F4> :CoffeeCompile vert<CR>
-    setl scrollbind
+    "setl scrollbind
 endfunction
 
 let coffee_compiler = '/usr/bin/coffee'
@@ -857,3 +882,4 @@ endif
 nmap <leader>d :set ft=htmldjango.html<CR>
 nmap <leader>f zfa)<CR>
 nmap <leader>fo zo<CR>
+
