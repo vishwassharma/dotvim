@@ -21,14 +21,14 @@ Bundle 'gmarik/vundle'
 " ---------------
 
 " ------- Navigation
-Bundle 'ZoomWin'
-Bundle 'wincent/Command-T'
+" Bundle 'ZoomWin'
+" Bundle 'wincent/Command-T'
 " This fork is required due to remapping ; to :
 " Bundle 'christoomey/vim-space'
-Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'vim-scripts/tag_list.vim'
 " Bundle 'mutewinter/LustyJuggler'
-Bundle "vim-scripts/LustyJuggler"
+Bundle 'vim-scripts/LustyJuggler'
 " Bundle 'kien/ctrlp.vim'
 
 " ------- UI Additions
@@ -40,76 +40,78 @@ Bundle 'nanotech/jellybeans.vim'
 " Bundle 'tomtom/quickfixsigns_vim'
 "Bundle 'fholgado/minibufexpl.vim'
 " ------- Commands
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-surround'
+" Bundle 'scrooloose/nerdcommenter'
+" Bundle 'tpope/vim-surround'
 " Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-fugitive'
+" Bundle 'tpope/vim-fugitive'
 " Bundle 'godlygeek/tabular'
 " Bundle 'mileszs/ack.vim'
 " Bundle 'gmarik/sudo-gui.vim'
 " Bundle 'milkypostman/vim-togglelist'
 " Automatic Helpers
 " Bundle 'IndexedSearch'
-Bundle 'xolox/vim-session'
-Bundle 'Raimondi/delimitMate'
+" Bundle 'xolox/vim-session'
+" Bundle 'Raimondi/delimitMate'
 " Bundle 'scrooloose/syntastic'
-Bundle 'ervandew/supertab'
-Bundle 'gregsexton/MatchTag'
+" Bundle 'ervandew/supertab'
+" Bundle 'gregsexton/MatchTag'
 " Bundle 'Shougo/neocomplcache'
 
 " -------Language Additions
 " -------------- html
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " https://github.com/kogakure/vim-sparkup.git
-Bundle "kogakure/vim-sparkup"
+" Bundle 'kogakure/vim-sparkup'
 "Bundle 'mattn/zencoding-vim'
 " <c-y>,
 " -------------- pythoncomplete
-Bundle "vim-scripts/pythoncomplete"
+" Bundle 'vim-scripts/pythoncomplete'
 " -------------- Ruby
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
+" Bundle 'vim-ruby/vim-ruby'
+" Bundle 'tpope/vim-haml'
+" Bundle 'tpope/vim-rails'
+" Bundle 'tpope/vim-rake'
 " --------------  JavaScript
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'leshill/vim-json'
-Bundle 'itspriddle/vim-jquery'
-Bundle 'vim-scripts/jade.vim'
+" Bundle 'pangloss/vim-javascript'
+" Bundle 'kchmck/vim-coffee-script'
+" Bundle 'leshill/vim-json'
+" Bundle 'itspriddle/vim-jquery'
+" Bundle 'vim-scripts/jade.vim'
 " --------------  Other Languages
 Bundle "othree/xml.vim"
 " Bundle 'msanders/cocoa.vim'
 " Bundle 'mutewinter/taskpaper.vim'
 " Bundle 'mutewinter/nginx.vim'
 " Bundle 'timcharper/textile.vim'
-Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+" Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 " Bundle 'acustodioo/vim-tmux'
 Bundle 'hallison/vim-markdown'
-Bundle 'jade.vim'
+" Bundle 'jade.vim'
 " Bundle 'xhtml.vim--Grny'
 " MatchIt
 " Bundle 'matchit.zip'
 " Bundle 'kana/vim-textobj-user'
 " Bundle 'nelstrom/vim-textobj-rubyblock'
 
+Bundle 'vim-scripts/c.vim'
+Bundle 'vim-scripts/DoxygenToolkit.vim'
 " ------- Libraries
 " Bundle 'L9'
-Bundle 'tpope/vim-repeat'
+" Bundle 'tpope/vim-repeat'
 " Bundle 'tomtom/tlib_vim'
-Bundle "MarcWeber/vim-addon-mw-utils" 
-Bundle "tomtom/tlib_vim"
+" Bundle 'MarcWeber/vim-addon-mw-utils'
+" Bundle 'tomtom/tlib_vim'
 
 " Sublime  Text goodies
-Bundle "mikewest/vimroom.git"
-Bundle "mklabs/vim-fetch.git"
-Bundle "mklabs/vim-backbone.git"
+" Bundle 'mikewest/vimroom.git'
+" Bundle 'mklabs/vim-fetch.git'
+" Bundle 'mklabs/vim-backbone.git'
 " ------- Snippets
 " Install dependencies:
-Bundle "snipmate-snippets"
-Bundle "garbas/vim-snipmate"
+" Bundle 'snipmate-snippets'
+" Bundle 'garbas/vim-snipmate'
 " Install custom plugins
-Bundle "vishwassharma/happy-snippets"
+" Bundle 'vishwassharma/happy-snippets'
 
 " let g:snipMate = {}
 " let g:snipMate.scope_aliases = {}
@@ -175,10 +177,10 @@ set showmode		" Show current mode
 " ----------------------
 " tabs setting
 " ----------------------
-set tabstop=8
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set backspace=2 " Delete everything with backspace
-set shiftwidth=4  " Tabs under smart indent
+set shiftwidth=2  " Tabs under smart indent
 set cindent
 set autoindent
 set smarttab
@@ -290,10 +292,10 @@ autocmd BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '
 " ----------------------------------------
 " Platform Specific Configuration
 " ----------------------------------------
-set guioptions-=T " Toolbar
-set guioptions-=m " Menubar
-set lines=60
-set columns=120
+" set guioptions -=T " Toolbar
+" set guioptions -=m " Menubar
+" set lines=999
+" set columns=999
 if has('win32') || has('win64')
   " Windows
   source $VIMRUNTIME/mswin.vim
@@ -302,8 +304,8 @@ if has('win32') || has('win64')
   " set guioptions-=m " Menubar
 
   " Set height and width on Windows
-  set lines=60
-  set columns=120
+  set lines=999
+  set columns=999
 
   " Windows has a nasty habit of launching gVim in the wrong working directory
   " cd ~
@@ -384,7 +386,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Map ,e to open files in the same directory as the current file
-map <leader>e :e <C-R>=expand("%:h")<cr>\
+map <leader>e :e <C-R>=expand("%:h")<cr>/
 
 " ,/ turn off search highlighting
 nmap <leader>/ :nohl<CR>
@@ -516,13 +518,13 @@ hi link EasyMotionShade  Comment
 
 " ---------------
 " SuperTab
-" ---------------
+" " ---------------
 " Set these up for cross-buffer completion (something Neocachecompl has a hard
 " time with)
-let g:SuperTabDefaultCompletionType="<c-x><c-n>"
+" let g:SuperTabDefaultCompletionType="<c-x><c-n>"
 " let g:SuperTabDefaultCompletionType="<C-X><C-O>"
-let g:SuperTabContextDefaultCompletionType="<c-x><c-n>"
-let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabContextDefaultCompletionType="<c-x><c-n>"
+" let g:SuperTabDefaultCompletionType = 'context'
 
 " ---------------
 " Neocachecompl
@@ -534,8 +536,8 @@ let g:neocomplcache_cursor_hold_i_time=300
 let g:neocomplcache_auto_completion_start_length=1
 
 " Tab / Shift-Tab to cycle completions
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Required to make neocomplcache_cursor_hold_i_time work
 " See https://github.com/Shougo/neocomplcache/issues/140
@@ -633,14 +635,14 @@ nmap <silent><leader>dn <Plug>SpeedDatingNowUTC
 " ---------------
 " Tabular
 " ---------------
-nmap <Leader>t= :Tabularize /=<CR>
-vmap <Leader>t= :Tabularize /=<CR>
-nmap <Leader>t: :Tabularize /:\zs<CR>
-vmap <Leader>t: :Tabularize /:\zs<CR>
-nmap <Leader>t, :Tabularize /,\zs<CR>
-vmap <Leader>t, :Tabularize /,\zs<CR>
-nmap <Leader>t> :Tabularize /=>\zs<CR>
-vmap <Leader>t> :Tabularize /=>\zs<CR>
+" nmap <Leader>t= :Tabularize /=<CR>
+" vmap <Leader>t= :Tabularize /=<CR>
+" nmap <Leader>t: :Tabularize /:\zs<CR>
+" vmap <Leader>t: :Tabularize /:\zs<CR>
+" nmap <Leader>t, :Tabularize /,\zs<CR>
+" vmap <Leader>t, :Tabularize /,\zs<CR>
+" nmap <Leader>t> :Tabularize /=>\zs<CR>
+" vmap <Leader>t> :Tabularize /=>\zs<CR>
 
 " ---------------
 " Fugitive
@@ -883,3 +885,4 @@ nmap <leader>d :set ft=htmldjango.html<CR>
 nmap <leader>f zfa)<CR>
 nmap <leader>fo zo<CR>
 
+let g:DoxygenToolkit_licenseTag="Copyright (c) 2013-2014 Vishwas Sharma"
